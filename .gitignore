@@ -1,0 +1,30 @@
+# Top-level ignores for both frontend and backend
+
+# Node dependencies
+/frontend/node_modules/
+/backend/node_modules/
+
+# Environment files - KEEP SECURE!
+/frontend/.env.local
+/frontend/.env.production
+/backend/.env
+
+# Next.js build output
+/frontend/.next/
+/frontend/out/
+
+# TypeScript build output for backend
+/backend/dist/
+
+# Vercel deployment cache
+.vercel/
+
+# Prisma generated files
+/backend/generated/
+
+# Log files
+*.log*
+
+# Misc
+.DS_Store
+*.pem
