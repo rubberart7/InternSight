@@ -26,6 +26,19 @@
 html,
 body {
   @apply bg-transparent;
+  /* Custom Scrollbar Styles */
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-periwinkle);
+    border-radius: 6px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
 }
 
 main {

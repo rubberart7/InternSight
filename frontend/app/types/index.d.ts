@@ -14,6 +14,10 @@ interface Resume {
   feedback: Feedback;
 }
 
+interface ResumeCardProps {
+  resume: Resume;
+}
+
 interface Feedback {
   overallScore: number;
   ATS: {
@@ -55,4 +59,8 @@ interface Feedback {
       explanation: string;
     }[];
   };
+}
+
+interface FeedBackProp {
+  feedback: Feedback;
 }
