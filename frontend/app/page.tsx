@@ -4,7 +4,7 @@ import ResumeCard from "./components/ui/ResumeCard";
 
 export default function Home() {
   return (
-    <main className="bg-[url('/images/bg-main-2.jpg')] bg-cover">
+    <main className="bg-[url('/images/bg-main.webp')] bg-cover">
 		<NavBar></NavBar>
 		<section className="main-section py-16">
 			<div className="page-heading">
