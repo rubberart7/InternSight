@@ -4,7 +4,7 @@ import Navbar from '../components/ui/NavBar'
 import Link from 'next/link'
 
 const page = () => {
-  return (
+  return ( 
     
     <main className='bg-cover min-h-screen flex flex-col items-center'
     style={{ backgroundImage: "url('/images/bg-main.webp')" }}
@@ -13,8 +13,8 @@ const page = () => {
         
         <section className="main-section py-16">
             <div className="page-heading">
-                    <h1>Welcome</h1>
-                    <h2>Log In to Continue Your Job Journey</h2>
+                    <h1>Find Your Next Role</h1>
+                    <h2>Sign Up to Get Started</h2>
             </div>
 
             <SignupForm></SignupForm>
