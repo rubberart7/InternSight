@@ -4,7 +4,6 @@ import cors from 'cors'
 const PORT = process.env.PORT || 4000;
 const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
 
-
 const app = express();
 
 const corsOptions = {
@@ -14,9 +13,6 @@ const corsOptions = {
       "http://localhost:3000", 
     ];
 
-    
-    
-    
     if (!origin) return callback(null, true);
 
     if (allowedOrigins.includes(origin)) {
@@ -30,7 +26,6 @@ const corsOptions = {
   credentials: true, 
   optionsSuccessStatus: 200
 };
-
 
 app.use(express.json());
 
