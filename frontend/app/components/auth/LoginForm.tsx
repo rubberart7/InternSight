@@ -18,7 +18,9 @@ const LoginForm = () => {
 	const { accessToken, loading: authLoading, setAccessToken } = useAuth();
 	const router = useRouter();
 
-	const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
+	const serverUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+	
     
 	const handleLoginClick = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
