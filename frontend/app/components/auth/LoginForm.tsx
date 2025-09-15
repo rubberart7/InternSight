@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const LoginForm = () => {
+
+    const handleLoginClick = () => {
+
+    }
   return (
     <form className="bg-white rounded-2xl p-8 shadow-lg">
         <div className="form-div">
@@ -28,7 +32,7 @@ const LoginForm = () => {
             />
             </div>
             
-            <button className="primary-button">
+            <button className="primary-button" type="submit">
             Log In
             </button>
             
