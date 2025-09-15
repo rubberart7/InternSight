@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image"; // Import the next/image component
+import Image from "next/image"; 
 import ScoreCircle from "./ScoreCircle";
 
 const ResumeCard = ({ resume }: { resume: Resume }) => {
