@@ -1,6 +1,7 @@
 import React from 'react'
 import LoginForm from '../components/auth/LoginForm'
 import Navbar from '../components/ui/NavBar'
+import Link from 'next/link'
 
 const page = () => {
   return (
@@ -18,11 +19,11 @@ const page = () => {
 
             <LoginForm></LoginForm>
 
-             <p className="text-dark-200">
+             <p className="text-black-900 font-bold">
                 Don't have an account?{' '}
-                <span className="text-blue-600 cursor-pointer hover:underline font-semibold">
-                Sign Up
-                </span>
+                <Link href="/signup"className="text-blue-600 cursor-pointer hover:underline font-bold">
+                    Sign Up
+                </Link >
             </p>
         </section>
         
@@ -32,4 +33,4 @@ const page = () => {
   )
 }
 
-export default page
+export default page;
