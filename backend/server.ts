@@ -4,6 +4,7 @@ import { PrismaClient } from './generated/prisma/index.js';
 import authRouter from './routes/authRoutes.js'
 import errorHandler from './middleware/error.js'
 import cookieParser from "cookie-parser";
+import resumeRouter from "./routes/resumeRoutes.js"
 
 
 const PORT = process.env.PORT || 4000;
@@ -39,6 +40,7 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.use('/api/auth', authRouter)
+app.use('/api/resume', resumeRouter);
 
 app.use(errorHandler);
 
