@@ -15,7 +15,7 @@ const JobUploadForm = () => {
             </div>
             <div className="form-div">
                 <label htmlFor="job-description">Job Description</label>
-                <textarea rows={5} name="job-description" placeholder="Job Description" id="job-description" />
+                <textarea rows={8} name="job-description" placeholder="Job Description" id="job-description" />
             </div>
 
 

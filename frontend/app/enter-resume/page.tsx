@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/ui/NavBar';
 import JobUploadForm from '../components/ui/JobUploadForm';
 import AnalyzeResumeButton from '../components/ui/AnalyzeResumeButton';
+import ResumeUploadForm from '../components/ui/ResumeForm';
 
 const page = () => {
   return (
@@ -14,6 +15,7 @@ const page = () => {
           <h1>Smart feedback for your dream job</h1>
           <h2>Drop your resume for an ATS score and improvement tips</h2>
           <JobUploadForm/>
+          <ResumeUploadForm/>
           <AnalyzeResumeButton/>
         </div>
 
