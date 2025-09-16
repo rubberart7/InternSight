@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [accessTokenExpiration, setAccessTokenExpiration] = useState<number | null>(null);
   const [userCollectionsVersion, setUserCollectionsVersion] = useState(0);
 
-  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
+  const serverUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   const incrementUserCollectionsVersion = () => {
     setUserCollectionsVersion(prev => prev + 1);
