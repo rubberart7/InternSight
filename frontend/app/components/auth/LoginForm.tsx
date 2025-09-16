@@ -20,7 +20,15 @@ const LoginForm = () => {
 
 	const serverUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
+	function handleEmailChange(event: React.ChangeEvent<HTMLInputElement>) {
+		setEmail(event.target.value);
+		setFeedback({ message: '', type: '' });
+	}
 	
+	function handlePasswordChange(event: React.ChangeEvent<HTMLInputElement>) {
+		setPassword(event.target.value);
+		setFeedback({ message: '', type: '' });
+	}
     
 	const handleLoginClick = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -34,14 +42,16 @@ const LoginForm = () => {
 		}
 
 		try {
+			console.log("We will attempt to get a response from the backend.")
 			const response = await fetch(`${serverUrl}api/auth/login`, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				credentials: "include",
 				body: JSON.stringify({ email, password }),
 			});
-
+			
 			const result = await response.json();
+
 
 			if (!response.ok) {
 				setFeedback({ message: result.message || "Login failed", type: "Error" });
@@ -66,32 +76,32 @@ const LoginForm = () => {
     
 
 	return (
-		<form className="bg-white rounded-2xl p-8 shadow-lg" onSubmit={handleLoginClick}>
+		<form className="bg-white rounded-2xl p-8 shadow-lg" onSubmit={handleLoginClick} action="post">
 			<div className="form-div">
 				<label htmlFor="email">Email</label>
-				<input
-					type="email"
-					id="email"
-					name="email"
-					
-					value={email}
-					onChange={(e) => { setEmail(e.target.value); setFeedback({ message: "", type: "" }); }}
-					placeholder="Enter your email"
-					required
-				/>
+					<input
+						type="email"
+						id="email"
+						
+						
+						value={email}
+						onChange={handleEmailChange}
+						placeholder="Enter your email"
+						required
+					/>
 				</div>
 				
 				<div className="form-div">
-				<label htmlFor="password">Password</label>
-				<input
-					type="password"
-					id="password"
-					name="password"
-					value={password}
-					onChange={(e) => { setPassword(e.target.value); setFeedback({ message: "", type: "" }); }}
-					placeholder="Enter your password"
-					required
-				/>
+					<label htmlFor="password">Password</label>
+					<input
+						type="password"
+						id="password"
+						
+						value={password}
+						onChange={handlePasswordChange}
+						placeholder="Enter your password"
+						required
+					/>
 				</div>
 
 				{feedback.message && (
@@ -101,7 +111,7 @@ const LoginForm = () => {
 				)}
 				
 				<button className="primary-button" type="submit">
-				Log In
+					Log In
 				</button>
 				
 		</form>

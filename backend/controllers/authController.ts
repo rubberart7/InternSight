@@ -52,6 +52,19 @@ export const register = async (
 ) => {
   const { fullName, email, password } = req.body;
 
+  console.log("We have triggerd the register function.")
+
+  console.log("fullName:", fullName);
+  console.log("email:", email);
+  console.log("password:", password);
+  console.log("fullName type:", typeof fullName);
+  console.log("email type:", typeof email);
+  console.log("password type:", typeof password);
+  console.log("fullName truthy:", !!fullName);
+  console.log("email truthy:", !!email);
+  console.log("password truthy:", !!password);
+  console.log("=== END REGISTER DEBUG ===");
+
   if (!fullName || !email || !password) {
     res.status(400).json({ message: "Please fill all fields", type: "Error" });
     return;
