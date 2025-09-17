@@ -37,11 +37,11 @@ h1 {
 }
 
 h2 {
-  @apply text-3xl text-dark-200;
+  @apply text-3xl text-black;
 }
 
 label {
-  @apply text-dark-200;
+  @apply text-gray-950 font-bold;
 }
 input {
   @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
