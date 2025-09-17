@@ -49,7 +49,7 @@ const ResumeAnalyzer: React.FC = () => {
 
   const serverUrl: string | undefined = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-  console.log(serverUrl);
+  
 
   const analyzeResume = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
