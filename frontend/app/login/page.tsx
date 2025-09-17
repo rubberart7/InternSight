@@ -20,7 +20,7 @@ const page = () => {
             <LoginForm></LoginForm>
 
              <p className="text-black-900 font-bold">
-                Don't have an account?{' '}
+                Don&apos;t have an account?{' '}
                 <Link href="/signup"className="text-blue-600 cursor-pointer hover:underline font-bold">
                     Sign Up
                 </Link >
