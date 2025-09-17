@@ -105,7 +105,7 @@ npm run dev
 ```
 
 ## 📁 Folder Structure
-
+```
 .
 ├── backend/                  # Express.js backend application
 │   ├── constants/
@@ -140,6 +140,7 @@ npm run dev
 │   ├── postcss.config.mjs
 │   ├── tsconfig.json
 │   └── README.md
+```
 
 ## 🚀 Deployment
 ### Backend (on Render)
