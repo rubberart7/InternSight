@@ -45,16 +45,24 @@ A full-stack platform for college students to acquire internships, featuring a r
 ```bash
 git clone https://github.com/your-username/your-internsight-repo.git
 cd internsight-repo
-Install backend dependencies:
+```
 
+### Install backend dependencies:
+```bash
 cd backend
 npm install
-Install frontend dependencies:
+```
 
+### Install frontend dependencies:
+```bash
 cd ../frontend
 npm install
-🔐 Environment Variables
-Backend (backend/.env)
+```
+
+## 🔐 Environment Variables
+
+### Backend (backend/.env)
+```env
 
 # Database Connection
 DATABASE_URL="postgresql://<user>:<password>@<your-supabase-host>:<port>/<db_name>?pgbouncer=true&pool_timeout=4000&pool_max=2"
@@ -72,28 +80,32 @@ CLIENT_URL="http://localhost:3000"
 Frontend (frontend/.env)
 
 NEXT_PUBLIC_BACKEND_URL="http://localhost:4000/"
-▶️ Run Locally
-Backend
-Navigate to the backend directory
 
-Run the Prisma migration to set up your database schema:
+```
+### ▶️ Run Locally
 
+1. Navigate to the backend directory
 
+2. Run the Prisma migration to set up your database schema:
+
+```bash
 npx prisma migrate dev --name init_database_schema
-Start the development server:
 
-
+```
+3. Start the development server:
+```bash
 npm run dev
-Frontend
-Navigate to the frontend directory
+```
+### Frontend
+1. Navigate to the frontend directory
 
-Start the development server:
-
-
+2. Start the development server:
+```bash
 npm run dev
-📁 Folder Structure
-pgsql
-Copy code
+```
+
+## 📁 Folder Structure
+
 .
 ├── backend/                  # Express.js backend application
 │   ├── constants/
@@ -128,27 +140,28 @@ Copy code
 │   ├── postcss.config.mjs
 │   ├── tsconfig.json
 │   └── README.md
-🚀 Deployment
-Backend (on Render)
-Create a new Web Service on Render
 
-Connect your GitHub repository for the backend
+## 🚀 Deployment
+### Backend (on Render)
+1. Create a new Web Service on Render
 
-Set the Build Command: npm install && npm run build
+2. Connect your GitHub repository for the backend
 
-Set the Start Command: npm start
+3. Set the Build Command: npm install && npm run build
 
-Add all necessary environment variables from your backend/.env file to the Render dashboard
+4. Set the Start Command: npm start
 
-Frontend (on Vercel)
-Import your GitHub repository into Vercel
+5. Add all necessary environment variables from your backend/.env file to the Render dashboard
 
-Set the project settings:
+### Frontend (on Vercel)
+1. Import your GitHub repository into Vercel
 
-Framework: Next.js
+2. Set the project settings:
 
-Root Directory: frontend/
+ - Framework: Next.js
 
-Vercel will automatically build and deploy your application
+ - Root Directory: frontend/
+
+3. Vercel will automatically build and deploy your application
 
 
