@@ -20,8 +20,8 @@ const ResumeCard = ({ resume }: { resume: Resume }) => {
           <Image
             src={resume.imagePath}
             alt="resume"
-            width={490} // Set the width of the image
-            height={350} // Set the height of the image
+            width={490} 
+            height={350} 
             className="w-full h-[350px] max-sm:h-[200px] object-cover object-top"
           />
         </div>
