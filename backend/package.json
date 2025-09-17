@@ -2,12 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx server.ts",
     "start": "node dist/server.js",
-    "build": "prisma generate && tsc",
+    "build": "npm install && npx prisma generate && tsc && cp -r generated dist/",
     "postinstall": "prisma generate"
   },
   "keywords": [],
@@ -28,10 +28,10 @@
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.4.0",
-    "typescript": "^5.9.2",
-    "prisma": "^6.16.1"
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
+    "prisma": "^6.16.1",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.5"
   }
