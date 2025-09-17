@@ -18,12 +18,9 @@ export const analyzeResume = async (req: Request, res: Response) => {
       certifications,
     } = req.body;
 
-    console.log('Starting resume analysis...');
-    console.log('Company:', companyName);
-    console.log('Job Title:', jobTitle);
-    console.log('Applicant:', name);
+    
 
-    // Validate required fields
+    
     if (!jobTitle || !jobDescription) {
       return res.status(400).json({ 
         message: 'Job title and job description are required', 
@@ -50,18 +47,18 @@ export const analyzeResume = async (req: Request, res: Response) => {
       certifications: certifications || '',
     };
 
-    console.log('Analyzing with Gemini...');
     
-    // Analyze with Gemini
+    
+    
     const feedback = await analyzeResumeWithGemini({
       jobTitle,
       jobDescription,
       resumeData,
     });
 
-    console.log('Analysis complete!');
     
-    // Return the analysis
+    
+    
     res.status(200).json({
       message: 'Resume analyzed successfully',
       type: 'Success',

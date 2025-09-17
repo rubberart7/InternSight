@@ -49,6 +49,8 @@ const ResumeAnalyzer: React.FC = () => {
 
   const serverUrl: string | undefined = process.env.NEXT_PUBLIC_BACKEND_URL;
 
+  console.log(serverUrl);
+
   const analyzeResume = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     setIsProcessing(true);
@@ -76,8 +78,7 @@ const ResumeAnalyzer: React.FC = () => {
     try {
       setStatusText('Preparing your resume data...');
       
-      console.log('Calling API:', `${serverUrl}api/resume/analyze`);
-      console.log('Server URL:', serverUrl);
+      
       
       setStatusText('Analyzing with AI...');
       const response = await fetch(`${serverUrl}api/resume/analyze`, {
@@ -88,8 +89,7 @@ const ResumeAnalyzer: React.FC = () => {
         body: JSON.stringify(data),
       });
 
-      console.log('Response status:', response.status);
-      console.log('Response headers:', response.headers);
+      
       
       const contentType = response.headers.get('content-type');
       if (!contentType || !contentType.includes('application/json')) {
