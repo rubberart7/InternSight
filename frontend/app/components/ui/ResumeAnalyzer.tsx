@@ -1,19 +1,21 @@
 "use client";
 
 import React, { useState, FormEvent } from 'react';
+import Image from 'next/image';
 
 interface FeedbackTip {
   type: "good" | "improve";
   tip: string;
-  explanation?: string; // Optional because ATS tips don't have explanations
+  explanation?: string;
 }
+
+type AnyFeedbackTip = FeedbackTip | { type: "good" | "improve"; tip: string; explanation?: string };
 
 interface ATSFeedbackSection {
   score: number;
   tips: {
     type: "good" | "improve";
     tip: string;
-    // No explanation for ATS tips
   }[];
 }
 
@@ -64,7 +66,7 @@ const ResumeAnalyzer: React.FC = () => {
       email: formData.get('email') as string,
       linkedin: formData.get('linkedin') as string,
       education: formData.get('education') as string,
-      description: formData.get('description') as string || '', // Add default empty string
+      description: formData.get('description') as string || '',
       skills: formData.get('skills') as string,
       workExperience: formData.get('work-experience') as string,
       projects: formData.get('projects') as string,
@@ -74,8 +76,8 @@ const ResumeAnalyzer: React.FC = () => {
     try {
       setStatusText('Preparing your resume data...');
       
-      // Debug: Log the URL being called
       console.log('Calling API:', `${serverUrl}api/resume/analyze`);
+      console.log('Server URL:', serverUrl);
       
       setStatusText('Analyzing with AI...');
       const response = await fetch(`${serverUrl}api/resume/analyze`, {
@@ -86,11 +88,9 @@ const ResumeAnalyzer: React.FC = () => {
         body: JSON.stringify(data),
       });
 
-      // Debug: Log response details
       console.log('Response status:', response.status);
       console.log('Response headers:', response.headers);
       
-      // Check if response is JSON
       const contentType = response.headers.get('content-type');
       if (!contentType || !contentType.includes('application/json')) {
         const textResponse = await response.text();
@@ -136,7 +136,6 @@ const ResumeAnalyzer: React.FC = () => {
           <p className="text-sm text-gray-500">Position: {analysisResult.jobTitle} at {analysisResult.companyName}</p>
         </div>
 
-        {/* Overall Score */}
         <div className={`p-6 rounded-lg mb-6 ${getScoreBackground(analysisResult.feedback.overallScore)}`}>
           <h2 className="text-2xl font-bold mb-2">Overall Score</h2>
           <div className={`text-4xl font-bold ${getScoreColor(analysisResult.feedback.overallScore)}`}>
@@ -144,7 +143,6 @@ const ResumeAnalyzer: React.FC = () => {
           </div>
         </div>
 
-        {/* Detailed Sections */}
         {(Object.entries(analysisResult.feedback) as [keyof AnalysisFeedback, ATSFeedbackSection | DetailedFeedbackSection | number][]).map(([key, section]) => {
           if (key === 'overallScore') return null;
           
@@ -164,7 +162,7 @@ const ResumeAnalyzer: React.FC = () => {
               </div>
               
               <div className="space-y-3">
-                {feedbackSection.tips.map((tip: any, index: number) => (
+                {feedbackSection.tips.map((tip: AnyFeedbackTip, index: number) => (
                   <div key={index} className={`p-4 rounded-lg ${
                     tip.type === 'good' ? 'bg-green-50 border-l-4 border-green-400' : 'bg-red-50 border-l-4 border-red-400'
                   }`}>
@@ -209,7 +207,14 @@ const ResumeAnalyzer: React.FC = () => {
           {isProcessing ? (
             <>
               <h2>{statusText}</h2>
-              <img src="/images/resume-scan.gif" className="w-full max-w-md mx-auto" alt="Analyzing..." />
+              <Image 
+                src="/images/resume-scan.gif" 
+                className="w-full max-w-md mx-auto" 
+                alt="Analyzing..." 
+                width={400}
+                height={300}
+                unoptimized
+              />
             </>
           ) : (
             <h2>Enter your information for an ATS score and improvement tips</h2>
@@ -223,7 +228,6 @@ const ResumeAnalyzer: React.FC = () => {
 
           {!isProcessing && (
             <form id="upload-form" className="flex flex-col gap-4 mt-8" onSubmit={analyzeResume}>
-              {/* Job Information */}
               <div className="form-div">
                 <label htmlFor="company-name">Company Name</label>
                 <input type="text" name="company-name" placeholder="Company Name" id="company-name" required />
@@ -237,7 +241,6 @@ const ResumeAnalyzer: React.FC = () => {
                 <textarea rows={8} name="job-description" placeholder="Job Description" id="job-description" required />
               </div>
 
-              {/* Personal Information */}
               <div className="form-div">
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" placeholder="Your Full Name" id="name" required />
@@ -251,14 +254,13 @@ const ResumeAnalyzer: React.FC = () => {
                 <input type="url" name="linkedin" placeholder="LinkedIn Profile URL" id="linkedin" />
               </div>
 
-              {/* Professional Information */}
               <div className="form-div">
-                <label htmlFor="education">Education</label>
-                <input type="text" name="education" placeholder="e.g. B.Sc. Computer Science, XYZ University" id="education" />
+                <label htmlFor="description">Professional Summary</label>
+                <textarea rows={4} name="description" placeholder="Brief professional summary or objective" id="description" />
               </div>
               <div className="form-div">
-                <label htmlFor="description">Description</label>
-                <textarea rows={8} name="description" placeholder="Brief professional summary or objective" id="description" />
+                <label htmlFor="education">Education</label>
+                <textarea rows={3} name="education" placeholder="e.g. B.Sc. Computer Science, XYZ University" id="education" />
               </div>
               <div className="form-div">
                 <label htmlFor="skills">Skills</label>
