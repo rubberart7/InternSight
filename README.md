@@ -1,7 +1,10 @@
 # InternSight  
-A full-stack platform for college students to acquire internships, featuring a resume analyzer and other career resources. Built with Next.js, React, TypeScript, and an Express.js backend. The core feature uses a Google Gemini-powered AI to analyze and provide detailed feedback on resumes.  
+A full-stack platform for college students to help in the job search process, featuring a resume analyzer and other career resources. Built with Next.js, React, TypeScript, and an Express.js backend. The core feature uses a Google Gemini-powered AI to analyze and provide detailed feedback on resumes.  
 
 ---
+
+## 🚀 Live Demo
+[https://intern-sight.vercel.app/](https://intern-sight.vercel.app/)  
 
 ## 🛠️ Built With  
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
