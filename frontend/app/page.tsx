@@ -1,8 +1,23 @@
+"use client";
+
 import NavBar from "./components/ui/NavBar";
 import { resumes } from "./constants";
 import ResumeCard from "./components/ui/ResumeCard";
+import { useAuth } from "./context/AuthContext";
+import LoadingSpinner from "./components/ui/LoadingSpinner";
 
 export default function Home() {
+
+	const { loading } = useAuth();
+
+	if (loading) {
+		return (
+      <div className="flex flex-col items-center justify-center h-full min-h-screen p-8 bg-slate-950 text-gray-100">
+        <LoadingSpinner />
+        <p className="mt-4 text-lg">Loading...</p>
+      </div>
+    );
+	}
   return (
     <main className="bg-[url('/images/bg-main.webp')] bg-cover">
 		<NavBar></NavBar>
