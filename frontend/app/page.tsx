@@ -12,10 +12,10 @@ export default function Home() {
 
 	if (loading) {
 		return (
-      <div className="flex flex-col items-center justify-center h-full min-h-screen p-8 bg-slate-950 text-gray-100">
-        <LoadingSpinner />
-        <p className="mt-4 text-lg">Loading...</p>
-      </div>
+      <div className="flex flex-col items-center justify-center h-full min-h-screen p-8 bg-white text-gray-950">
+		<LoadingSpinner />
+		<p className="mt-4 text-lg">Loading...</p>
+		</div>
     );
 	}
   return (

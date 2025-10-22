@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 interface LoadingSpinnerProps {
   className?: string;
 }
@@ -8,7 +7,7 @@ interface LoadingSpinnerProps {
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ className }) => {
   return (
     <svg
-      className={`animate-spin h-5 w-5 ${className || ''}`}
+      className={`animate-spin h-5 w-5 text-[#8B5CF6] ${className || ''}`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
