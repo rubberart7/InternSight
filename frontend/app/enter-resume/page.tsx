@@ -1,6 +1,6 @@
 "use client";
 
-import React, { use } from 'react';
+
 import Navbar from '../components/ui/NavBar';
 import ResumeAnalyzer from '../components/ui/ResumeAnalyzer';
 import { useAuth } from '../context/AuthContext';
